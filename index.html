@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maseran'ny Fo Masin'i Jesoa avy any Raguse </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #9e1b1b;
+            --primary-dark: #7a1111;
+            --text-dark: #2d3748;
+            --light-bg: #f7fafc;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            background-color: var(--light-bg);
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            transition: all 0.4s ease-in-out;
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .navbar.scrolled {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            padding: 5px 0;
+        }
+        .hero {
+            background: linear-gradient(135deg, rgba(158,27,27,0.95) 0%, rgba(45,55,72,0.85) 100%), url('img/MaseraFond.jpg') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            animation: fadeInUp;
+            animation-duration: 1s;
+        }
+        .hero-content h2 {
+            font-size: 2rem;
+            letter-spacing: 4px;
+            color: #fbd38d;
+            animation: fadeInUp;
+            animation-duration: 1.2s;
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            margin: 20px 0 30px 0;
+            font-style: italic;
+            animation: fadeInUp;
+            animation-duration: 1.4s;
+        }
+        .hero-content button {
+            background: #ffffff;
+            color: var(--primary);
+            padding: 14px 32px;
+            font-size: 1rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp;
+            animation-duration: 1.6s;
+        }
+        .hero-content button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(255,255,255,0.4);
+            background: var(--primary);
+            color: white;
+        }
+        .apropos {
+            padding: 100px 10% 80px 10%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        .apropos-img img {
+            width: 100%;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            transition: transform 0.4s ease;
+        }
+        .apropos-img img:hover {
+            transform: scale(1.03);
+        }
+        .apropos-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            position: relative;
+        }
+        .apropos-text h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+        .apropos-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a5568;
+        }
+        .activites, .lieux {
+            padding: 80px 10%;
+            text-align: center;
+        }
+        .activites h2, .lieux h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 50px;
+            position: relative;
+        }
+        .card-container, .lieux-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .card, .lieu-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .card:hover, .lieu-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(158,27,27,0.15);
+        }
+        .card img, .lieu-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .card:hover img, .lieu-card:hover img {
+            transform: scale(1.08);
+        }
+        .card h3, .lieu-card h3 {
+            font-size: 1.3rem;
+            margin: 20px 0 10px 0;
+            color: var(--text-dark);
+        }
+        .card p {
+            padding: 0 20px 20px 20px;
+            color: #718096;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        .btn-center {
+            background: var(--primary);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(158,27,27,0.3);
+        }
+        .btn-center:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(158,27,27,0.4);
+        }
+        .implantation-text {
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 30px auto;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        footer {
+            background: #1a202c;
+            color: #a0aec0;
+            padding: 60px 10% 20px 10%;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            border-bottom: 1px solid #2d3748;
+            padding-bottom: 40px;
+        }
+        .footer-content h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .footer-content a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .footer-content a:hover {
+            color: #fbd38d;
+        }
+        .copy {
+            text-align: center;
+            padding-top: 20px;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .apropos { grid-template-columns: 1fr; }
+            .hero-content h1 { font-size: 2.2rem; }
+        }
+    </style>
+<script>
+    window.addEventListener('scroll', function() {
+        const navbar = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+</script>
+</head>
+<body>
+ 
+<nav class="navbar">
+    <div class="logo">
+        <img src="img/slogo.png" alt="Logo">
+    </div>
+    <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="other dossier/historique.html">Historique</a></li>
+        <li><a href="other dossier/activites.html">Activités</a></li>
+        <li><a href="other dossier/lieux.html">Lieux</a></li>
+    </ul>
+</nav>
+
+<header class="hero">
+    <div class="hero-content">
+        <h1 class="animate__animated animate__fadeInUp">Maseran'ny Fo Masin'i Jesoa avy any Raguse</h1>
+        <h2 class="animate__animated animate__fadeInUp">MADAGASCAR</h2>
+        <p class="animate__animated animate__fadeInUp">Fitiavana sy 
+            Fanonerana ao amin'ny Fo Masin'i Jesoa
+        </p>
+        <a href="other dossier/activites.html" class="animate__animated animate__fadeInUp">
+            <button>Découvrir notre mission</button>
+        </a>
+    </div>
+</header>
+
+<section class="apropos">
+    <div class="apropos-img">
+        <img src="img/MaseraFond.jpg" alt="Sœurs du Sacré-Cœur">
+    </div>
+    <div class="apropos-text">
+        <h2>Iza moa izahay ?</h2>
+        <p>
+          Izahay  Maseran’ny Fo Masin'i Jesoa avy any Raguse Italia dia fikambanan-drelijiozy katolika vehivavy. Naorin'i Olontsambatra Mère Maria Schininà tamin'ny 9 Mey 1889 tao Raguse (Ragusa), Sisily, Italia. Efa miely amin'ny firenena maro ny fikambanana ankehitriny , anisan’izany i Madagasikara . 
+
+Ny toe-piainana iainanay  dia ny fitiavana sy fanonerana ao amin'ny Fo Masin'i Jesoa, izay asehonay amin'ny asa famindram-po sy ny fanompoana ny mahantra sy ireo sahirana. Kendrenay  ny hampiseho ny fitiavan'i Kristy amin'ny alalan'ny asa sy ny fiainanays andavanandro.
+“ Miondrika amin'ny mahantra ” .
+
+        </p>
+       
+    </div>
+</section>
+
+<section class="activites">
+    <h2> NY KARISMANAY </h2>
+    <div class="card-container">
+        <div class="card">
+            <img src="img/fianarana.jpg" alt="Éducation">
+            <h3>FANABEAZANA</h3>
+            <p>FANABEAZANA FOTOTRA AMIN'NY MAHA OLONA FENO.</p>
+        </div>
+        <div class="card">
+            <img src="img/marary.png" alt="Santé">
+            <h3>FAHASALAMANA</h3>
+            <p>FITSABOANA SY FIKARAKARANA NY MAREFO .</p>
+        </div>
+        <div class="card">
+            <img src="img/pastoralMad1.jpg" alt="Pastorale">
+            <h3>EO ANIVON'NY FIANGONANA </h3>
+            <p>ASA AO AMIN'NY FIANGONANA .</p>
+        </div>
+    </div>
+    <a href="other dossier/activites.html">
+        <button class="btn-center">Voir toutes les activités</button>
+    </a>
+</section>
+
+<section class="lieux">
+    <h2>IREO TOERANA MISY NY TRANON'NY FIKAMBANANA </h2>
+    <div class="lieux-container">
+        <div class="lieu-card">
+            <img src="img/tana1.jpg" alt="Antananarivo">
+            <h3>Antananarivo Ampasanimalo</h3>
+        </div>
+        <div class="lieu-card">
+            <img src="img/fianara1.jpg" alt="Imerina Imady">
+            <h3>Fianarantsoa Talatamaty</h3>
+        </div>
+        <div class="lieu-card">
+            <img src="img/farafangana1.jpg" alt="Bekopaka">
+            <h3>Farafangana ALBA</h3>
+        </div>
+    </div>
+    <p class="implantation-text">
+        Miely amin'ny diosezy maro eto Madagasikara ny fikambanana ary mirotsaka amin'ireo karazana sehatra maro na ao amin'ny Fiangonana na ivelany .
+    </p>
+    <a href="other dossier/lieux.html">
+        <button class="btn-center"> TOERANA HAFA  </button>
+    </a>
+</section>
+
+<footer>
+    <div class="footer-content">
+        <div>
+            <h3>Sœurs du Sacré-Cœur</h3>
+            <p>Foi • Service • Amour</p>
+        </div>
+        <div>
+            <h3>Navigation</h3>
+            <a href="pages/apropos.html">À propos</a><br>
+            <a href="pages/activites.html">Activités</a><br>
+            <a href="pages/lieux.html">Lieux</a>
+        </div>
+        <div>
+            <h3>Contact</h3>
+            <p>Email : contact@email.com</p>
+            <p>Téléphone : +261 XX XX XXX XX</p>
+        </div>
+    </div>
+    <div class="copy">
+        © 2026 Sœurs du Sacré-Cœur de Jésus de Raguse Madagascar
+    </div>
+</footer>
+
+</body>
+</html>

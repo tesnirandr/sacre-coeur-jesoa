@@ -1,0 +1,270 @@
+/* ==========================================================================
+   1. RESET SY DESIGN FOTOTRA
+   ========================================================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+.menu a.active {
+    color: #cecece !important;
+    border-bottom: 2px solid #54152a;
+    padding-bottom: 5px;
+}
+
+/* ==========================================================================
+   2. HERO BANNER
+   ========================================================================== */
+.history-hero {
+    width: 100%;
+    height: 400px;
+  
+    background: url("../img/MaseraFond.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(40, 5, 15, 0.6), rgba(123, 22, 56, 0.85));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 42px;
+    margin: 0 0 10px 0;
+    letter-spacing: 1px;
+    font-weight: 700;
+}
+
+.hero-line {
+    width: 80px;
+    height: 4px;
+    background: #e4c46c;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.hero-overlay p {
+    font-size: 18px;
+    color: #f0f0f0;
+    font-style: italic;
+    margin: 0;
+}
+
+/* ==========================================================================
+   3. GRILLE MOSAIQUE LAYOUT (SANS VIDE)
+   ========================================================================== */
+.narrative-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+/* Ligne chronologique */
+.narrative-container::before{
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: #e4c46c;
+    transform: translateX(-50%);
+    opacity: .25;
+}
+
+.narrative-row {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    margin-bottom: 90px;
+}
+
+.narrative-row.reverse {
+    flex-direction: row-reverse;
+}
+
+.narrative-text {
+    flex: 1;
+}
+
+.epoch-badge {
+    display: inline-block;
+    background: #7b1638;
+    color: white;
+    padding: 6px 16px;
+    font-weight: 700;
+    font-size: 13px;
+    border-radius: 4px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 3px 8px rgba(123, 22, 56, 0.2);
+}
+
+.narrative-text h2 {
+    color: #7b1638;
+    font-size: 28px;
+    margin: 0 0 20px 0;
+    font-weight: 700;
+}
+
+.narrative-text p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #555;
+    text-align: justify;
+    margin: 0;
+}
+
+/* NY STYLE HO AN'IREO LISITRY NY FARITRA */
+.region-list {
+    list-style: none;
+    padding: 0;
+    margin: 18px 0 0 0;
+}
+
+.region-list li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #444;
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 14px;
+    text-align: justify;
+}
+
+.region-list li::before {
+    content: "•";
+    color: #e4c46c;
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    left: 0;
+    top: -4px;
+}
+
+/* LAFINY SARY */
+.narrative-media {
+    flex: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.main-img, .extra-img {
+    width: 100%;
+    height: 290px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+}
+
+/* BOATI-TENY NINDRAMINA (CITATION) */
+.side-quote {
+    background: #fdf6f8;
+    border-left: 4px solid #7b1638;
+    padding: 25px;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-quote p {
+    margin: 0;
+    font-style: italic;
+    color: #7b1638;
+    font-weight: 600;
+    text-align: center;
+    line-height: 1.6;
+    font-size: 15px;
+}
+
+.side-quote.color-bg {
+    background: #7b1638;
+    border-left: none;
+    border-radius: 8px;
+}
+
+.side-quote.color-bg p {
+    color: #e4c46c;
+}
+
+/* ==========================================================================
+   4. FOOTER SY RESPONSIVE
+   ========================================================================== */
+.sub-footer {
+    background: #141414;
+    color: white;
+    padding: 50px 10%;
+    margin-top: 80px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-content h3 {
+    color: #e4c46c;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.footer-content a {
+    color: #bbb;
+    text-decoration: none;
+    line-height: 2;
+}
+
+.footer-content a:hover {
+    color: white;
+}
+
+.copy {
+    text-align: center;
+    padding-top: 25px;
+    margin-top: 40px;
+    border-top: 1px solid #292929;
+    color: #666;
+    font-size: 14px;
+}
+
+@media (max-width: 950px) {
+    .narrative-row, .narrative-row.reverse {
+        flex-direction: column;
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    
+    .narrative-media {
+        width: 100%;
+    }
+    
+    .main-img, .extra-img {
+        height: 240px;
+    }
+    
+    .history-hero {
+        height: 320px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 30px;
+    }
+}

@@ -1,0 +1,312 @@
+.footDetails
+{
+    display: flex;
+    gap: 5px;
+    padding: 15px 0 15px 0 ;
+    display: flex;
+    justify-content: space-around;
+    border: #7b1638 solid 1px;
+    border-radius: 5px;
+    background-color: #7b1638;
+    color: white;
+}
+
+/* ==========================================================================
+   1. RESET SY ENKAPOBENY
+   ========================================================================== */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fcfcfc;
+    color: #333;
+}
+
+.menu a.active {
+    color: #7b1638 !important;
+    border-bottom: 2px solid #7b1638;
+    padding-bottom: 15px;
+}
+
+/* ==========================================================================
+   2. HERO BANNER
+   ========================================================================== */
+.lieux-hero {
+    width: 100%;
+    height: 380px;
+    /* margin-top: 90px; */
+    background: url("../img/fianara1.jpg") no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(40, 5, 15, 0.5), rgba(123, 22, 56, 0.8));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 42px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.hero-line {
+    width: 70px;
+    height: 4px;
+    background: #e4c46c;
+    margin-bottom: 15px;
+    border-radius: 2px;
+}
+
+.hero-overlay p {
+    font-size: 18px;
+    color: #f0f0f0;
+    margin: 0;
+}
+
+/* ==========================================================================
+   3. SECTION CARTE MADAGASCAR LEHIBE
+   ========================================================================== */
+.implantation-map {
+    text-align: center;
+    padding: 70px 10% 40px 10%;
+    background: #f9f9f9;
+}
+
+.implantation-map h2 {
+    color: #7b1638;
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.map-description {
+    color: #666;
+    margin-bottom: 35px;
+    font-size: 16px;
+}
+
+.madagascar-map {
+    width: 70%;
+    max-width: 850px;
+    border-radius: 15px;
+    border: 3px solid #7b1638; /* Cadre mena manodidina ilay sary */
+    box-shadow: 0 10px 30px rgba(123, 22, 56, 0.15);
+    transition: all 0.4s ease;
+}
+
+.madagascar-map:hover {
+    transform: scale(1.02);
+    border-color: #e4c46c; /* Miova volamena rehefa hoveren */
+}
+
+/* ==========================================================================
+   4. CARDS GRID + FRAMING NY MARKA MENA
+   ========================================================================== */
+.cards-section {
+    padding: 60px 10% 80px 10%;
+    background: #fafafa;
+    text-align: center;
+}
+
+.cards-section h2 {
+    color: #7b1638;
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
+}
+
+.barre-center {
+    width: 50px;
+    height: 4px;
+    background: #e4c46c;
+    margin: 15px auto 25px auto;
+    border-radius: 2px;
+}
+
+.lieux-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
+    margin-top: 40px;
+}
+
+.lieu-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    text-align: left;
+}
+
+/* Hover Effect mahery vaika mampisongadina ilay point mena amin'ny sary */
+.lieu-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(123, 22, 56, 0.18);
+    border-bottom: 3px solid #e4c46c;
+}
+
+.card-img-container {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    border-bottom: 4px solid #7b1638; /* Tsipika mena manasaraka ny sary sy ny lahatsoratra */
+}
+
+.card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Mba tsy hikorontana ny bikan'ilay sarintany */
+    transition: transform 0.6s ease;
+}
+
+/* Zoom kely mampisongadina ilay marka mena rehefa hoveren ny card */
+.lieu-card:hover .card-img-container img {
+    transform: scale(1.15);
+}
+
+.badge-diocese {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: #7b1638;
+    color: white;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
+
+.card-body {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    margin: 0 0 15px 0;
+    color: #7b1638;
+    font-size: 21px;
+    font-weight: 700;
+}
+
+.lieu-mission {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin: 0 0 25px 0;
+    flex-grow: 1;
+    text-align: justify;
+}
+
+.lieu-meta {
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+    margin-bottom: 5px;
+}
+
+.lieu-meta p {
+    margin: 6px 0;
+    font-size: 14px;
+    color: #666;
+}
+
+/* NY BOUTON "VOIR LE PLAN DETAILLE" */
+.btn-details {
+    display: inline-block;
+    background: transparent;
+    color: #7b1638;
+    border: 2px solid #7b1638;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-details:hover {
+    background: #7b1638;
+    color: white;
+    box-shadow: 0 4px 12px rgba(123, 22, 56, 0.2);
+}
+
+/* ==========================================================================
+   5. FOOTER SY RESPONSIVE
+   ========================================================================== */
+.sub-footer {
+    background: #141414;
+    color: white;
+    padding: 50px 10%;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-content h3 {
+    color: #e4c46c;
+    margin-bottom: 18px;
+    font-size: 19px;
+}
+
+.footer-content a {
+    color: #ccc;
+    text-decoration: none;
+    line-height: 1.9;
+}
+
+.copy {
+    text-align: center;
+    padding-top: 25px;
+    margin-top: 40px;
+    border-top: 1px solid #292929;
+    color: #666;
+    font-size: 14px;
+}
+
+@media (max-width: 768px) {
+    .cards-section, .implantation-map {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    
+    .lieux-hero {
+        height: 300px;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 32px;
+    }
+    
+    .lieux-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .madagascar-map {
+        width: 100%;
+    }
+}
