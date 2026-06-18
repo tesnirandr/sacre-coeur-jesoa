@@ -1,8 +1,138 @@
-/* ==========================================================================
-   CODE RESPONSIVE UNIQUEMENT (À coller tout en bas de lieux.css)
-   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    box-sizing: border-box;
+    z-index: 9999;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
 
-/* Pour les tablettes (écrans inférieurs à 992px) */
+.navbar.scrolled {
+    background: #7b1638 !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .logo img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.navbar .menu {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 30px;
+}
+
+.navbar .menu a {
+    text-decoration: none;
+    color: #2c3e50;
+    font-size: 16px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar.scrolled .menu a {
+    color: #ffffff !important;
+}
+
+.menu-checkbox, .burger-label {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        height: 70px !important;
+        padding: 0 20px !important;
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+    }
+
+    .navbar .logo img {
+        height: 45px !important;
+        width: auto !important;
+    }
+
+    .burger-label {
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        width: 26px !important;
+        height: 19px !important;
+        cursor: pointer !important;
+        z-index: 10000 !important;
+    }
+
+    .burger-label span {
+        width: 100%;
+        height: 3px;
+        background-color: #7b1638;
+        border-radius: 2px;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .navbar.scrolled .burger-label span {
+        background-color: #ffffff !important;
+    }
+
+    .navbar .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 75%;   
+        max-width: 300px;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.08);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 35px;
+        transition: right 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+        padding: 50px 20px;
+        box-sizing: border-box;
+    }
+
+    .navbar.scrolled .menu {
+        background: rgba(123, 22, 56, 0.98) !important;
+    }
+
+    .navbar .menu a {
+        font-size: 20px;
+        letter-spacing: 1px;
+    }
+
+    .menu-checkbox:checked ~ .menu {
+        right: 0;
+    }
+
+    .menu-checkbox:checked ~ .burger-label span:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-checkbox:checked ~ .burger-label span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    .menu-checkbox:checked ~ .burger-label span:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
 @media (max-width: 992px) {
     .lieux-container {
         padding: 40px 5%;
@@ -12,18 +142,16 @@
     }
 }
 
-/* Pour les smartphones Android / iOS (écrans inférieurs à 768px) */
 @media (max-width: 768px) {
     .main-title {
         font-size: 1.8rem;
     }
-    /* On garde la structure en grille mais on adapte la taille des cartes de lieux */
     .grid-lieux {
         grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
         gap: 20px;
     }
     .lieu-box img {
-        height: 160px; /* Les images s'adaptent proportionnellement */
+        height: 160px;
     }
     .lieu-info {
         padding: 15px;
@@ -31,42 +159,64 @@
     .lieu-info h3 {
         font-size: 1.1rem;
     }
-    
-    /* Ajustement pour le slider s'il déborde sur mobile */
     .slider-container {
         width: 100%;
-        max-height: 300px; /* On réduit la hauteur maximale du slider sur mobile */
+        max-height: 300px;
     }
 }
 
-/* Pour les petits smartphones (écrans inférieurs à 480px) */
 @media (max-width: 480px) {
     .main-title {
         font-size: 1.4rem;
     }
-    /* Sur un écran de moins de 480px, une grille multi-colonnes détruirait la lisibilité, 
-       on passe donc sur une seule colonne propre */
     .grid-lieux {
         grid-template-columns: 1fr;
     }
 }
 
-.footDetails
-{
+.footDetails {
     display: flex;
-    gap: 5px;
-    padding: 15px 0 15px 0 ;
-    display: flex;
-    justify-content: space-around;
-    border: #7b1638 solid 1px;
-    border-radius: 5px;
-    background-color: #7b1638;
-    color: white;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px;
+    margin-top: 15px;
+    border: 1px solid #f0e6e9;
+    border-radius: 8px;
+    background-color: #fffbfc;
+    font-size: 13.5px;
 }
 
-/* ==========================================================================
-   1. RESET SY ENKAPOBENY
-   ========================================================================== */
+.footDetails .c1, 
+.footDetails .c2 {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+}
+
+.footDetails p {
+    margin: 0 !important;
+    color: #4a5568;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    line-height: 1.4;
+}
+
+.footDetails i {
+    color: #7b1638;
+    width: 16px;
+    text-align: center;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .footDetails {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -81,13 +231,14 @@ body {
     padding-bottom: 15px;
 }
 
-/* ==========================================================================
-   2. HERO BANNER
-   ========================================================================== */
+.navbar.scrolled .menu a.active {
+    color: #e4c46c !important;
+    border-bottom: 2px solid #e4c46c;
+}
+
 .lieux-hero {
     width: 100%;
     height: 380px;
-    /* margin-top: 90px; */
     background: url("../img/fianara1.jpg") no-repeat center center;
     background-size: cover;
     position: relative;
@@ -126,9 +277,6 @@ body {
     margin: 0;
 }
 
-/* ==========================================================================
-   3. SECTION CARTE MADAGASCAR LEHIBE
-   ========================================================================== */
 .implantation-map {
     text-align: center;
     padding: 70px 10% 40px 10%;
@@ -152,19 +300,16 @@ body {
     width: 70%;
     max-width: 850px;
     border-radius: 15px;
-    border: 3px solid #7b1638; /* Cadre mena manodidina ilay sary */
+    border: 3px solid #7b1638;
     box-shadow: 0 10px 30px rgba(123, 22, 56, 0.15);
     transition: all 0.4s ease;
 }
 
 .madagascar-map:hover {
     transform: scale(1.02);
-    border-color: #e4c46c; /* Miova volamena rehefa hoveren */
+    border-color: #e4c46c;
 }
 
-/* ==========================================================================
-   4. CARDS GRID + FRAMING NY MARKA MENA
-   ========================================================================== */
 .cards-section {
     padding: 60px 10% 80px 10%;
     background: #fafafa;
@@ -205,7 +350,6 @@ body {
     text-align: left;
 }
 
-/* Hover Effect mahery vaika mampisongadina ilay point mena amin'ny sary */
 .lieu-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(123, 22, 56, 0.18);
@@ -217,17 +361,16 @@ body {
     width: 100%;
     height: 220px;
     overflow: hidden;
-    border-bottom: 4px solid #7b1638; /* Tsipika mena manasaraka ny sary sy ny lahatsoratra */
+    border-bottom: 4px solid #7b1638;
 }
 
 .card-img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Mba tsy hikorontana ny bikan'ilay sarintany */
+    object-fit: cover;
     transition: transform 0.6s ease;
 }
 
-/* Zoom kely mampisongadina ilay marka mena rehefa hoveren ny card */
 .lieu-card:hover .card-img-container img {
     transform: scale(1.15);
 }
@@ -280,7 +423,6 @@ body {
     color: #666;
 }
 
-/* NY BOUTON "VOIR LE PLAN DETAILLE" */
 .btn-details {
     display: inline-block;
     background: transparent;
@@ -302,9 +444,6 @@ body {
     box-shadow: 0 4px 12px rgba(123, 22, 56, 0.2);
 }
 
-/* ==========================================================================
-   5. FOOTER SY RESPONSIVE
-   ========================================================================== */
 .sub-footer {
     background: #141414;
     color: white;
