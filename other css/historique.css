@@ -1,4 +1,56 @@
 /* ==========================================================================
+   CODE RESPONSIVE UNIQUEMENT (À coller tout en bas de historique.css)
+   ========================================================================== */
+
+/* Pour les tablettes (écrans inférieurs à 992px) */
+@media (max-width: 992px) {
+    .historique-container {
+        padding: 40px 5%;
+    }
+    .titre-principal {
+        font-size: 2.2rem;
+    }
+}
+
+/* Pour les smartphones Android / iOS (écrans inférieurs à 768px) */
+@media (max-width: 768px) {
+    .historique-container {
+        padding: 30px 15px;
+    }
+    .titre-principal {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    .section-histoire {
+        padding: 20px;
+        margin-bottom: 25px;
+    }
+    .section-histoire h2 {
+        font-size: 1.3rem;
+    }
+    .section-histoire p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    /* Si tu as des images ou des blocs côte à côte dans ton historique, 
+       ceci s'assure qu'ils restent fluides */
+    .content-block {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+/* Pour les petits smartphones (écrans inférieurs à 480px) */
+@media (max-width: 480px) {
+    .titre-principal {
+        font-size: 1.5rem;
+    }
+    .section-histoire {
+        padding: 15px;
+    }
+}
+
+/* ==========================================================================
    1. RESET SY DESIGN FOTOTRA
    ========================================================================== */
 body {

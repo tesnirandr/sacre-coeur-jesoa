@@ -1,4 +1,59 @@
 /* ==========================================================================
+   CODE RESPONSIVE UNIQUEMENT (À coller tout en bas de activites.css)
+   ========================================================================== */
+
+/* Pour les tablettes (écrans inférieurs à 992px) */
+@media (max-width: 992px) {
+    .container {
+        padding: 40px 5%;
+    }
+    .header h1 {
+        font-size: 2.2rem;
+    }
+    .grid-activites {
+        gap: 20px; /* On resserre l'espace entre les cartes */
+    }
+}
+
+/* Pour les smartphones Android / iOS (écrans inférieurs à 768px) */
+@media (max-width: 768px) {
+    .header {
+        padding: 60px 20px 30px 20px;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    .header p {
+        font-size: 1rem;
+    }
+    /* On garde la structure de la grille mais on réduit la taille minimale des colonnes */
+    .grid-activites {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 15px;
+    }
+    .card-img {
+        height: 180px; /* On rétrécit légèrement les images pour gagner de la place */
+    }
+    .card-content {
+        padding: 15px;
+    }
+    .card-content h3 {
+        font-size: 1.1rem;
+    }
+}
+
+/* Pour les petits smartphones (écrans inférieurs à 480px) */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+    /* Si l'écran est vraiment trop étroit, on passe en 1 seule colonne pour éviter que le texte soit écrasé */
+    .grid-activites {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================================================
    1. BASES & RESET
    ========================================================================== */
 body {

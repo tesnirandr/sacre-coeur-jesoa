@@ -1,3 +1,56 @@
+/* ==========================================================================
+   CODE RESPONSIVE UNIQUEMENT (À coller tout en bas de lieux.css)
+   ========================================================================== */
+
+/* Pour les tablettes (écrans inférieurs à 992px) */
+@media (max-width: 992px) {
+    .lieux-container {
+        padding: 40px 5%;
+    }
+    .main-title {
+        font-size: 2.2rem;
+    }
+}
+
+/* Pour les smartphones Android / iOS (écrans inférieurs à 768px) */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 1.8rem;
+    }
+    /* On garde la structure en grille mais on adapte la taille des cartes de lieux */
+    .grid-lieux {
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 20px;
+    }
+    .lieu-box img {
+        height: 160px; /* Les images s'adaptent proportionnellement */
+    }
+    .lieu-info {
+        padding: 15px;
+    }
+    .lieu-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    /* Ajustement pour le slider s'il déborde sur mobile */
+    .slider-container {
+        width: 100%;
+        max-height: 300px; /* On réduit la hauteur maximale du slider sur mobile */
+    }
+}
+
+/* Pour les petits smartphones (écrans inférieurs à 480px) */
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.4rem;
+    }
+    /* Sur un écran de moins de 480px, une grille multi-colonnes détruirait la lisibilité, 
+       on passe donc sur une seule colonne propre */
+    .grid-lieux {
+        grid-template-columns: 1fr;
+    }
+}
+
 .footDetails
 {
     display: flex;
