@@ -50,6 +50,27 @@
     }
 }
 
+.menu a {
+    text-decoration: none;
+    color: #7b1638 !important;
+    font-weight: 900;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: #e4c46c !important;
+}
+
+.navbar.scrolled .menu a {
+    color: #ffffff !important;
+}
+
+.navbar.scrolled .menu a:hover,
+.navbar.scrolled .menu a.active {
+    color: #e4c46c !important;
+}
+
 /* ==========================================================================
    1. RESET SY DESIGN FOTOTRA
    ========================================================================== */
